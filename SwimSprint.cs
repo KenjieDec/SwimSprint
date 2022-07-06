@@ -1,4 +1,4 @@
-﻿using UltimateWater;
+using UltimateWater;
 using UnityEngine;
 
 public class SwimSprint : Mod
@@ -52,14 +52,22 @@ public class SwimSprint : Mod
                 {
                     RAPI.GetLocalPlayer().PersonController.swimSpeed = 10 + sS;
                     RAPI.GetLocalPlayer().PersonController.swimSpeed = (2 * 5) + sS;
-                    GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.foodDecrementRateMultiplier = 1.2f;
-                    GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier = 1.2f;
+                    if (GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.foodDecrementRateMultiplier > 0f) {
+                        GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.foodDecrementRateMultiplier = 1.2f;
+                    }
+                    if (GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier > 0f) {
+                        GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier = 1.2f;
+                    }
                     RAPI.GetLocalPlayer().Stats.stat_oxygen.SetOxygenLostPerSecond(1.25f);
                     return;
                 }
                 RAPI.GetLocalPlayer().PersonController.swimSpeed = 10 + sS; 
-                GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.foodDecrementRateMultiplier = 1.3f;
-                GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier = 1.3f;
+                if (GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.foodDecrementRateMultiplier > 0f) {
+                    GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.foodDecrementRateMultiplier = 1.3f;
+                }
+                if (GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier > 0f) {
+                    GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier = 1.3f;
+                }
                 RAPI.GetLocalPlayer().Stats.stat_oxygen.SetOxygenLostPerSecond(1.5f);
             }
         }else if (MyInput.GetButtonUp("Sprint"))
@@ -70,7 +78,12 @@ public class SwimSprint : Mod
                 theSpeed = 2;
             }
             RAPI.GetLocalPlayer().PersonController.swimSpeed = theSpeed;
-            GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.foodDecrementRateMultiplier = 1f;
+            if (GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.foodDecrementRateMultiplier > 0f) {
+                GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.foodDecrementRateMultiplier = 1f;
+            }
+            if (GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier > 0f) {
+                GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier = 1f;
+            }
             GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier = 1f;
             RAPI.GetLocalPlayer().Stats.stat_oxygen.SetOxygenLostPerSecond(1f);
         }
