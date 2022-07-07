@@ -84,7 +84,6 @@ public class SwimSprint : Mod
             if (GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier > 0f) {
                 GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier = 1f;
             }
-            GameModeValueManager.GetCurrentGameModeValue().nourishmentVariables.thirstDecrementRateMultiplier = 1f;
             RAPI.GetLocalPlayer().Stats.stat_oxygen.SetOxygenLostPerSecond(1f);
         }
     }
