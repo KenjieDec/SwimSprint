@@ -23,7 +23,7 @@ public class SwimSprint : Mod
     }
     public void Update()
     {
-        if (Semih_Network.InLobbyScene)
+        if (!LoadSceneManager.IsGameSceneLoaded)
         {
             return;
         }
